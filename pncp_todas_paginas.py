@@ -1,15 +1,12 @@
-import calendar
+import tkinter as tk
+from tkinter import messagebox, ttk, filedialog
+from PIL import Image, ImageTk
 import json
 import requests
-
 from datetime import datetime
 
-from tkinter import filedialog, messagebox, ttk
-import tkinter as tk
-from PIL import Image, ImageTk
-
 def pncp():
-    esfera = esfera_entry.get()
+    esfera = esfera_combobox.get()
     uf_sigla = uf_combobox.get()
     data_inicial = data_inicial_entry.get()
     data_final = data_final_entry.get()
@@ -17,6 +14,11 @@ def pncp():
     # Verifica se os campos foram preenchidos
     if not esfera or not uf_sigla or not data_inicial or not data_final:
         messagebox.showerror("Erro", "Por favor, preencha todos os campos.")
+        return
+
+    # Verifica se a esfera selecionada é válida
+    if esfera not in ["E", "M"]:
+        messagebox.showerror("Erro", "Por favor, selecione uma esfera válida.")
         return
 
     # Verifica se as datas estão no formato correto
@@ -89,26 +91,21 @@ def verificar_intervalo_de_datas(data_inicial, data_final):
 
 # Criando a janela principal
 root = tk.Tk()
-root.title("Filtrar Registros")
-root.configure(bg="#f0f0f0")  # Cor de fundo
+root.title("PNCP")
+root.configure(bg="black")  # Cor de fundo preta
 
-# Carregando a imagem da logo
-logo_image = Image.open("logo.png")
-logo_image = logo_image.resize((150, 75))
-logo_photo = ImageTk.PhotoImage(logo_image)
-
-# Criando o widget de logo
-logo_label = tk.Label(root, image=logo_photo, bg="#f0f0f0")
-logo_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
+# Ícone da janela
+root.iconbitmap("icon.ico")
 
 # Criando os widgets
-esfera_label = tk.Label(root, text="Esfera:", font=("Verdana", 12), bg="#f0f0f0")
+esfera_label = tk.Label(root, text="Esfera:", font=("Verdana", 12), bg="black", fg="white")
 esfera_label.grid(row=1, column=0, padx=5, pady=5, sticky="e")
 
-esfera_entry = tk.Entry(root, font=("Verdana", 12))
-esfera_entry.grid(row=1, column=1, padx=5, pady=5)
+esferas = ["E", "M"]
+esfera_combobox = ttk.Combobox(root, values=esferas, font=("Verdana", 12), state="readonly")
+esfera_combobox.grid(row=1, column=1, padx=5, pady=5)
 
-uf_label = tk.Label(root, text="UF Sigla:", font=("Verdana", 12), bg="#f0f0f0")
+uf_label = tk.Label(root, text="UF Sigla:", font=("Verdana", 12), bg="black", fg="white")
 uf_label.grid(row=2, column=0, padx=5, pady=5, sticky="e")
 
 # Lista de estados do Brasil
@@ -119,12 +116,12 @@ estados_brasil = [
 uf_combobox = ttk.Combobox(root, values=estados_brasil, font=("Verdana", 12), state="readonly")
 uf_combobox.grid(row=2, column=1, padx=5, pady=5)
 
-data_inicial_label = tk.Label(root, text="Data Inicial (AAAAMMDD):", font=("Verdana", 12), bg="#f0f0f0")
+data_inicial_label = tk.Label(root, text="Data Inicial (AAAAMMDD):", font=("Verdana", 12), bg="black", fg="white")
 data_inicial_label.grid(row=3, column=0, padx=5, pady=5, sticky="e")
 data_inicial_entry = tk.Entry(root, font=("Verdana", 12))
 data_inicial_entry.grid(row=3, column=1, padx=5, pady=5)
 
-data_final_label = tk.Label(root, text="Data Final (AAAAMMDD):", font=("Verdana", 12), bg="#f0f0f0")
+data_final_label = tk.Label(root, text="Data Final (AAAAMMDD):", font=("Verdana", 12), bg="black", fg="white")
 data_final_label.grid(row=4, column=0, padx=5, pady=5, sticky="e")
 data_final_entry = tk.Entry(root, font=("Verdana", 12))
 data_final_entry.grid(row=4, column=1, padx=5, pady=5)
