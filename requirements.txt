@@ -1,0 +1,4 @@
+requests
+DateTime
+pillow
+tkinter
