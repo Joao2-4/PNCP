@@ -30,13 +30,19 @@ Este repositório contém um script Python para consultar e filtrar dados da API
 
 1. Clone este repositório para o seu ambiente local.
 2. Instale as dependências listadas no arquivo requirements.txt usando `pip install -r requirements.txt`.
-3. Execute o script `pncp_todas_paginas.py`, que ainda está na versão beta.
+3. Execute o script `pncp_todas_paginas.py` que possui uma "interface" feita com a biblioteca Tkinter, ou o script `pncp.py`, que já trabalha pelo Terminal ou Prompt de comando, ambos estão na versão beta.
 4. Siga as instruções na linha de comando para inserir a esfera e a sigla do estado desejados.
 5. Os dados filtrados serão salvos em um arquivo JSON no local especificado.
 
 ### Contribuindo
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request com melhorias, correções de bugs ou novas funcionalidades.
+
+---
+
+Este projeto foi desenvolvido em parceria com João Vitor Veloso dos Santos, estagiário parceiro no TCE-RJ para o setor de Dados da STI.
+
+--- 
 
 ### Licença
 
