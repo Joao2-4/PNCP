@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="https://github.com/powerandcontrol/MP4-em-Python/blob/main/mp4_em_python_header.gif" alt="Header">
+  <img src="https://github.com/powerandcontrol/PNCP/blob/main/header_readme.png" alt="Header">
 </div>
 
 <div align="center">
-   <img src="https://github.com/powerandcontrol/MP4-em-Python/blob/main/icon_mp4_em_python.gif" alt="Icon" width=80>
+   <img src="https://github.com/powerandcontrol/PNCP/blob/main/icon.gif" alt="Icon" width=100>
 </div>
 
 <div align="center">
