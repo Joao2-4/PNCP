@@ -73,16 +73,27 @@ def carrega():
         print(f"Total de páginas: {total_paginas}")
         print(f"Número da página atual: {numero_pagina}")
         print(f"Páginas restantes: {paginas_restantes}")
-        print(f"Está vazio? {empty}")
 
-        # Filtrando os objetos com base na esfera e unidadeOrgao.ufSigla
-        esfera = input("Digite a Esfera que deseja: ")
+        print(f"Está vazio? {empty}")
+        # Lista para armazenar as esferas fornecidas pelo usuário
+        listEsfera = []
+
+        # Solicita ao usuário que insira o ID da esfera até que o valor 0 seja inserido
+        for _ in range(4):
+            esfera_id = input("Digite o ID da esfera: ")
+            esferaupper = esfera_id.upper()
+            if esfera_id == "0":  
+                break
+            listEsfera.append(esferaupper)
+
+        print(listEsfera)
+
         uf_sigla = input("Digite o Estado que deseja: ")
-        filtered_data = [item for item in data['data'] if item['orgaoEntidade']['esferaId'] == esfera and item['unidadeOrgao']['ufSigla'] == uf_sigla]
+        filtered_data = [item for item in data['data'] if item['orgaoEntidade']['esferaId'] in listEsfera and item['unidadeOrgao']['ufSigla'] == uf_sigla]
 
         # Contar o número de registros correspondentes
         total_registros_filtrados = len(filtered_data)
-        print(f"Total de registros para a esfera '{esfera}' e UF '{uf_sigla}': {total_registros_filtrados}")
+        print(f"Total de registros para a esfera '{listEsfera}' e UF '{uf_sigla}': {total_registros_filtrados}")
 
         # Salvar os dados filtrados em um novo arquivo JSON
         salvar_dados(filtered_data)
