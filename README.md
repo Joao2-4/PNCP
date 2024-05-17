@@ -40,7 +40,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou env
 
 ---
 
-Este projeto foi desenvolvido em parceria com João Vitor Veloso dos Santos, estagiário parceiro no TCE-RJ para o setor de Dados da STI.
+Este projeto foi desenvolvido em parceria com Pedro Lucas Moreira Barbosa Silva, estagiário parceiro no TCE-RJ para o setor de Dados da STI.
 
 --- 
 
